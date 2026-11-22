@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "name": "Nestly portfolio demo seed data",
+    "version": "1.0.0",
+    "lastUpdated": "2026-11-22",
+    "disclaimer": "Every person, lender, product, property and financial figure in this file is fictional and is for demonstration only. It is not lending advice or a credit assessment."
+  },
+  "advisers": [
+    { "id": "adv_jules_morgan", "name": "Jules Morgan", "role": "Mortgage adviser", "initials": "JM" },
+    { "id": "adv_sam_rivera", "name": "Sam Rivera", "role": "Senior broker", "initials": "SR" }
+  ],
+  "clients": [
+    {
+      "id": "cli_mia_noah_patel",
+      "displayName": "Mia & Noah Patel",
+      "household": "Couple, first home buyers",
+      "joinedAt": "2026-02-12",
+      "adviserId": "adv_jules_morgan",
+      "goal": { "type": "First home", "targetSuburb": "Brunswick, VIC", "targetPrice": 850000, "targetDate": "2026-09-01" },
+      "income": { "monthlyNet": 15830, "stability": "Both permanently employed" },
+      "expenses": { "living": 5420, "otherCommitments": 4746 },
+      "savings": { "availableDeposit": 170000, "monthlyContribution": 2850 },
+      "planHealth": "on_track",
+      "lastActivity": "2026-11-22T09:42:00+11:00"
+    },
+    {
+      "id": "cli_priya_arun_shah",
+      "displayName": "Priya & Arun Shah",
+      "household": "Couple, owner occupiers",
+      "joinedAt": "2024-05-18",
+      "adviserId": "adv_jules_morgan",
+      "goal": { "type": "Refinance", "targetSuburb": "Glen Waverley, VIC", "targetPrice": 1120000, "targetDate": "2026-12-18" },
+      "income": { "monthlyNet": 17600, "stability": "One permanent, one self-employed" },
+      "expenses": { "living": 6100, "otherCommitments": 3910 },
+      "savings": { "availableDeposit": 252000, "monthlyContribution": 1800 },
+      "planHealth": "review_due",
+      "lastActivity": "2026-11-21T14:10:00+11:00"
+    },
+    {
+      "id": "cli_hayden_lewis",
+      "displayName": "Hayden Lewis",
+      "household": "Single professional, investor",
+      "joinedAt": "2026-08-09",
+      "adviserId": "adv_sam_rivera",
+      "goal": { "type": "Investment property", "targetSuburb": "Newcastle, NSW", "targetPrice": 690000, "targetDate": "2027-02-01" },
+      "income": { "monthlyNet": 10680, "stability": "Permanently employed" },
+      "expenses": { "living": 4200, "otherCommitments": 2680 },
+      "savings": { "availableDeposit": 138000, "monthlyContribution": 1650 },
+      "planHealth": "needs_attention",
+      "lastActivity": "2026-11-18T10:23:00+11:00"
+    },
+    {
+      "id": "cli_amara_chen",
+      "displayName": "Amara Chen",
+      "household": "Family of three, upgrading",
+      "joinedAt": "2025-06-04",
+      "adviserId": "adv_jules_morgan",
+      "goal": { "type": "Upgrade home", "targetSuburb": "Mount Gravatt, QLD", "targetPrice": 980000, "targetDate": "2027-03-01" },
+      "income": { "monthlyNet": 14200, "stability": "Permanently employed" },
+      "expenses": { "living": 5850, "otherCommitments": 2490 },
+      "savings": { "availableDeposit": 285000, "monthlyContribution": 2200 },
+      "planHealth": "on_track",
+      "lastActivity": "2026-11-14T16:45:00+11:00"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scn_patel_agreed_plan",
+      "clientId": "cli_mia_noah_patel",
+      "name": "First home, right timing",
+      "status": "active",
+      "propertyPrice": 850000,
+      "deposit": 170000,
+      "interestRate": 6.14,
+      "loanTermYears": 30,
+      "repaymentType": "principal_and_interest",
+      "createdAt": "2026-11-20T11:15:00+11:00"
+    },
+    {
+      "id": "scn_patel_open_homes",
+      "clientId": "cli_mia_noah_patel",
+      "name": "Weekend open homes",
+      "status": "draft",
+      "propertyPrice": 925000,
+      "deposit": 185000,
+      "interestRate": 6.14,
+      "loanTermYears": 30,
+      "repaymentType": "principal_and_interest",
+      "createdAt": "2026-11-22T09:42:00+11:00"
+    },
+    {
+      "id": "scn_shah_rate_review",
+      "clientId": "cli_priya_arun_shah",
+      "name": "Rate-expiry review",
+      "status": "active",
+      "propertyPrice": 1120000,
+      "deposit": 252000,
+      "interestRate": 6.79,
+      "loanTermYears": 25,
+      "repaymentType": "principal_and_interest",
+      "createdAt": "2026-11-14T13:00:00+11:00"
+    }
+  ],
+  "lenderProducts": [
+    { "id": "lp_harbor_fixed", "lender": "Harbor Mutual", "name": "Owner Occupier Fixed 2 Year", "rate": 5.89, "comparisonRate": 6.14, "minLvr": 0, "maxLvr": 80, "features": ["Offset account", "Extra repayments"] },
+    { "id": "lp_southbank_variable", "lender": "Southbank Credit Union", "name": "Home Flex Variable", "rate": 6.14, "comparisonRate": 6.31, "minLvr": 0, "maxLvr": 90, "features": ["Redraw", "Extra repayments", "Split loan"] },
+    { "id": "lp_wattle_green", "lender": "Wattle Finance", "name": "First Step Variable", "rate": 6.29, "comparisonRate": 6.45, "minLvr": 0, "maxLvr": 95, "features": ["First buyer support", "Redraw"] }
+  ],
+  "alerts": [
+    { "id": "alt_rate_expiry", "clientId": "cli_priya_arun_shah", "severity": "medium", "category": "rate_expiry", "title": "Rate expiry in 23 days", "explanation": "The illustrative fixed rate on the current plan expires on 15 December 2026. Review a refinance scenario before the expiry date.", "suggestedAction": "Review plan", "createdAt": "2026-11-22T08:00:00+11:00" },
+    { "id": "alt_low_buffer", "clientId": "cli_hayden_lewis", "severity": "high", "category": "comfort_buffer", "title": "Comfort buffer dropped below target", "explanation": "Living expenses rose by $640 per month in the latest plan update, reducing the illustrative residual buffer below the portfolio threshold.", "suggestedAction": "Review plan", "createdAt": "2026-11-18T10:25:00+11:00" },
+    { "id": "alt_deposit_ready", "clientId": "cli_mia_noah_patel", "severity": "low", "category": "deposit_goal", "title": "Deposit goal reached", "explanation": "The current savings figure meets the active plan's 20% deposit target. The next useful step is a pre-approval checklist.", "suggestedAction": "Open plan", "createdAt": "2026-11-22T09:45:00+11:00" }
+  ],
+  "resources": [
+    { "id": "res_comfort_buffer", "type": "explainer", "title": "What is a comfort buffer?", "summary": "A client-friendly explanation of remaining monthly cash flow after commitments and a proposed repayment.", "reviewStatus": "approved" },
+    { "id": "res_preapproval", "type": "checklist", "title": "Pre-approval, without the overwhelm", "summary": "A clear list of documents and questions for a lender-ready application.", "reviewStatus": "approved" },
+    { "id": "res_rate_change", "type": "conversation_guide", "title": "Making sense of a rate change", "summary": "A guide for discussing rate movements, options and trade-offs without creating alarm.", "reviewStatus": "approved" }
+  ],
+  "rules": {
+    "comfortRatioTarget": 0.3,
+    "highLvrThreshold": 0.8,
+    "serviceabilityStressRateAddition": 3,
+    "currency": "AUD",
+    "assumptions": ["Figures are illustrative only", "Loan calculations use monthly principal-and-interest repayments", "No stamp duty, government grants, LMI, lender fees or taxation calculations are included in the MVP"]
+  }
+}

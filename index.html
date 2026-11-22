@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nestly mortgage-planning collaboration prototype" />
+    <title>Nestly — home loan planning, together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Nestly home"><span class="brand-mark">n</span><span>Nestly</span></a>
+        <nav>
+          <a class="nav-link active" href="#top"><span>⌁</span> Plans</a>
+          <a class="nav-link" href="insights.html"><span>◌</span> Insights</a>
+          <a class="nav-link" href="clients.html"><span>◫</span> Clients</a>
+          <a class="nav-link" href="library.html"><span>▣</span> Library</a>
+        </nav>
+        <section class="sidebar-footer">
+          <div class="advisor-mini"><div class="avatar">JM</div><div><strong>Jules Morgan</strong><small>Mortgage adviser</small></div><span>⌄</span></div>
+          <p>Portfolio concept<br /><span>Built for an AI Product Engineer application</span></p>
+        </section>
+      </aside>
+
+      <main id="top">
+        <header class="topbar">
+          <div class="breadcrumb"><a href="clients.html">Clients</a><span>/</span><a href="clients.html">Mia &amp; Noah Patel</a><span>/</span><strong>First home, right timing</strong></div>
+          <div class="top-actions"><button class="icon-button" aria-label="Notifications">⌁<i></i></button><button class="share-button" id="shareButton">↗ Share with clients</button></div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="eyebrow">ACTIVE PLAN <span></span> UPDATED JUST NOW</p>
+            <h1>First home,<br /><em>right timing.</em></h1>
+            <p class="hero-copy">A shared picture of what Mia and Noah can comfortably afford—and the choices that get them there sooner.</p>
+          </div>
+          <div class="client-card">
+            <div class="client-stack"><div class="face face-one">M</div><div class="face face-two">N</div></div>
+            <div><strong>Mia &amp; Noah Patel</strong><span>Buying their first home</span></div>
+            <button class="more-button" aria-label="More client actions">•••</button>
+          </div>
+        </section>
+
+        <section class="summary-grid" aria-label="Plan summary">
+          <article class="metric-card primary"><div class="metric-label">Target property price <button class="info" title="Property price">i</button></div><div class="metric-value" id="priceDisplay">$850k</div><div class="metric-foot">Inner north Melbourne</div></article>
+          <article class="metric-card"><div class="metric-label">Estimated loan</div><div class="metric-value" id="loanDisplay">$680k</div><div class="metric-foot positive"><span>↓</span> 80% LVR</div></article>
+          <article class="metric-card"><div class="metric-label">Monthly repayment</div><div class="metric-value" id="repaymentDisplay">$4,138</div><div class="metric-foot">at 6.14% p.a.</div></article>
+          <article class="metric-card"><div class="metric-label">Comfort buffer</div><div class="metric-value" id="bufferDisplay">$1,526</div><div class="metric-foot positive">● Healthy position</div></article>
+        </section>
+
+        <section class="workspace">
+          <div class="scenario-panel">
+            <div class="section-heading"><div><p class="eyebrow">THE SCENARIO</p><h2>Turn the dials</h2></div><button class="reset" id="resetButton">↺ Reset</button></div>
+            <p class="section-intro">Explore the trade-offs together. Every change updates the plan in real time.</p>
+            <div class="control-grid">
+              <label class="control"><span>Property price <output id="priceOutput">$850,000</output></span><input id="price" type="range" min="550000" max="1200000" value="850000" step="25000" /><small><span>$550k</span><span>$1.2m</span></small></label>
+              <label class="control"><span>Deposit <output id="depositOutput">$170,000</output></span><input id="deposit" type="range" min="80000" max="350000" value="170000" step="5000" /><small><span>$80k</span><span>$350k</span></small></label>
+              <label class="control"><span>Interest rate <output id="rateOutput">6.14%</output></span><input id="rate" type="range" min="4.5" max="8" value="6.14" step="0.01" /><small><span>4.5%</span><span>8.0%</span></small></label>
+              <label class="control"><span>Loan term <output id="termOutput">30 years</output></span><input id="term" type="range" min="20" max="30" value="30" step="1" /><small><span>20 yrs</span><span>30 yrs</span></small></label>
+            </div>
+            <div class="scenario-actions"><button class="secondary-button" id="saveButton">＋ Save as new scenario</button><button class="text-button" id="compareButton">Compare scenarios →</button></div>
+          </div>
+
+          <aside class="outcome-card" id="insights">
+            <div class="outcome-top"><div><p class="eyebrow">YOUR MONTHLY PICTURE</p><h2>Comfortably<br />within reach</h2></div><span class="status-dot">●</span></div>
+            <div class="ring-wrap"><svg class="ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="47" fill="none" stroke="#e8eee9" stroke-width="10"/><circle id="ringProgress" cx="60" cy="60" r="47" fill="none" stroke="#244d42" stroke-width="10" stroke-linecap="round" stroke-dasharray="295.3" stroke-dashoffset="75" transform="rotate(-90 60 60)"/></svg><div class="ring-copy"><strong id="ratioDisplay">27%</strong><span>of take-home pay</span></div></div>
+            <div class="cash-flow"><div><span>Household take-home</span><strong>$15,830</strong></div><div><span>Living costs</span><strong>−$5,420</strong></div><div><span>Other commitments</span><strong>−$4,746</strong></div><div><span>Loan repayment</span><strong id="cashRepayment">−$4,138</strong></div><div class="cash-total"><span>Room to breathe</span><strong id="cashBuffer">$1,526</strong></div></div>
+            <p class="outcome-note" id="outcomeNote">You’re below the 30% comfort threshold. This plan leaves flexibility for life as it happens.</p>
+          </aside>
+        </section>
+
+        <section class="lower-grid" id="library">
+          <article class="timeline-card"><div class="section-heading"><div><p class="eyebrow">PATH TO KEYS</p><h2>A plan with momentum</h2></div><button class="quiet-button">View details ↗</button></div><div class="timeline"><div class="timeline-item complete"><span class="timeline-dot"></span><div><small>NOW</small><strong>Shape the brief</strong><p>Budget and suburb shortlist agreed.</p></div><b>✓</b></div><div class="timeline-item current"><span class="timeline-dot"></span><div><small>JUN — AUG 2026</small><strong>Build the deposit</strong><p>$2,850/month puts the target within reach.</p></div><b>↗</b></div><div class="timeline-item"><span class="timeline-dot"></span><div><small>SEP 2026</small><strong>Get pre-approved</strong><p>Line up your lender-ready documents.</p></div></div></article>
+          <article class="advisor-note"><div class="note-top"><div class="sparkle">✦</div><span>ADVISER NOTE</span><button aria-label="Close note">×</button></div><h3>One small move could save $41k.</h3><p>Adding $250 to the monthly repayment could shorten the loan by 3 years and 8 months.</p><button class="note-button" id="applyExtraButton">See the impact <span>→</span></button></article>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <dialog id="shareDialog"><button class="dialog-close" aria-label="Close">×</button><p class="eyebrow">SHARE PLAN</p><h2>Invite Mia &amp; Noah</h2><p>They’ll get a private link to explore this plan and leave questions for you.</p><label>Email address<input type="email" value="mia.noah@example.com" /></label><button class="share-button" id="sendInvite">Send invitation</button></dialog>
+    <script src="app.js"></script>
+  </body>
+</html>

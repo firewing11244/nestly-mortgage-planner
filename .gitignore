@@ -1,0 +1,8 @@
+# Dependencies and generated output
+react-app/node_modules/
+react-app/dist/
+react-app/*.tsbuildinfo
+
+# Local operating-system and editor files
+.DS_Store
+.vscode/
