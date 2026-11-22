@@ -8,7 +8,8 @@ An original portfolio concept for an AI Product Engineer application. It demonst
 - Live mortgage scenario modelling: price, deposit, rate, and term update repayment, LVR, affordability ratio, and cash buffer.
 - A broker-ready collaboration flow: save scenario, share plan, adviser note, and a next-steps timeline.
 - Product thinking in the interface: clear assumptions, useful guardrails, and plain-language interpretation.
-- A React + TypeScript MVP with route-based screens, stateful scenarios and a synthetic local data repository.
+- A React + TypeScript MVP with route-based screens, stateful scenarios and a REST API layer.
+- An Express backend with validation and an in-memory repository seeded from safe fictional data.
 
 ## Run it
 
@@ -17,10 +18,10 @@ An original portfolio concept for an AI Product Engineer application. It demonst
 ```sh
 cd react-app
 npm install
-npm run dev -- --host 127.0.0.1 --port 5174
+npm run dev
 ```
 
-Then visit `http://127.0.0.1:5174`.
+Then visit `http://localhost:5174`. This starts both the React UI and Express API together.
 
 Run a production-quality check with:
 
@@ -40,7 +41,19 @@ Then visit `http://localhost:5173`.
 
 ## Demo data
 
-The React app imports fictional advisers, client households, scenarios, lender products, alerts, resources and calculation rules from [`data/seed-data.json`](data/seed-data.json). See [`data/ASSUMPTIONS.md`](data/ASSUMPTIONS.md) for its scope and public reference points.
+The Express API owns the fictional advisers, client households, scenarios, lender products, alerts, resources and calculation rules seeded from [`data/seed-data.json`](data/seed-data.json). See [`data/ASSUMPTIONS.md`](data/ASSUMPTIONS.md) for its scope and public reference points.
+
+## API surface
+
+The browser calls the Express API through Vite's `/api` proxy.
+
+- `GET /api/health`
+- `GET /api/clients` and `GET /api/clients/:clientId`
+- `GET /api/scenarios` and `GET /api/clients/:clientId/scenarios`
+- `POST /api/scenarios` — validates and creates a scenario in the demo repository
+- `GET /api/alerts`, `GET /api/resources`, and `GET /api/config/rules`
+
+The repository intentionally resets to the committed seed data on an API restart. In production, this API boundary would use authenticated database repositories and an audited calculation service.
 
 ## Suggested interview walkthrough (about 90 seconds)
 
@@ -52,4 +65,4 @@ The React app imports fictional advisers, client households, scenarios, lender p
 
 ## Honest scope
 
-This is a front-end prototype using illustrative figures. It does not provide lending advice, retrieve bank data, or make credit decisions.
+This is a portfolio MVP using illustrative figures. It does not provide lending advice, retrieve bank data, or make credit decisions. The local backend is intentionally in-memory and has no authentication; it is not a production security model.
